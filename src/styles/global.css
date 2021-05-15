@@ -1,0 +1,29 @@
+@font-face {
+  font-family: "DrukTextWide";
+  src: url("../fonts/DrukTextWide-Heavy.otf");
+}
+
+p {
+    font-family: 'Courier New';
+    margin-bottom: .5rem !important;
+}
+
+h1 {
+    font-family: 'DrukTextWide';
+    margin-bottom: 0 !important;
+}
+
+a {
+    color: black !important;
+    text-decoration: none !important;
+}
+
+a:hover {
+    color: black;
+}
+a:visited {
+    color: black;
+}
+a:active {
+    color: black;
+}
