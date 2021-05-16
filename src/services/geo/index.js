@@ -69,6 +69,7 @@ class Geo {
 
     static async findLocations(zipCode, radius) {
         const hash = {};
+        let state;
 
         try {
             const {zipCodeApiHost, zipCodeClientKey, zipCodeApiKey} = this;
@@ -76,11 +77,21 @@ class Geo {
             const zipRaw = await fetch(`${zipCodeApiHost}/rest/${zipCodeClientKey}/radius.json/${zipCode}/${radius}/mile`);
 
             const zipJson = await zipRaw.json();
+
+            console.log(zipJson, '<<< zip json');
+
+            const [first] = zipJson.zip_codes;
+
+            console.log(first, '<<< first');
+
+            state = first.state;
         } catch (e) {
             console.log(e, '<<<<<<< ERROR');
         }
 
-        const test = await fetch('https://www.vaccinespotter.org/api/v0/states/FL.json');
+        console.log(state, ',<< state');
+
+        const test = await fetch(`https://www.vaccinespotter.org/api/v0/states/${state}.json`);
 
         const res = await test.json();
 
