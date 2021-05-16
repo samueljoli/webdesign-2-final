@@ -1,10 +1,12 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import {Row, Col, Container} from "react-bootstrap"
-import * as styles from './index.module.css';
 import Geo from '../../services/geo';
-import {ZIP_CODE_API_APP_KEY} from "gatsby-env-variables"
+import VaccineSpotterContext from '../../contexts/vaccineSpotter';
+import * as styles from './index.module.css';
+import { Link } from "gatsby"
 
 const FindPage = () => {
+    const {setData, isFetcing, setIsFetching} = useContext(VaccineSpotterContext);
     const [zipCode, setZipCode] = useState('');
     const [radius, setRadius] = useState(0);
 
@@ -16,14 +18,18 @@ const FindPage = () => {
         setRadius(Number(e.target.value));
     };
 
-    const onClick = () => {
-        Geo.speak();
+    const onClick = async () => {
+        setIsFetching(true);
+        const res = await Geo.findLocations(zipCode, radius);
+        setData(res);
+        setIsFetching(false);
     };
 
     return (
         <Container className={styles.container} fluid >
             <Row>
-                <Col xs={12}>
+                <Col className={styles.fade} xs={12}>
+                    {isFetcing && (<p> is fetching </p>)}
                     <span>
                         Find a location at zipde:
                     </span>
@@ -40,8 +46,8 @@ const FindPage = () => {
                         miles
                     </span>
                 </Col>
-                <Col xs={12}>
-                    <button onClick={onClick}>Search</button>
+                <Col className={styles.fade} xs={12}>
+                    <Link className={styles.link} to="/matches" onClick={onClick}>Search</Link> <span className={styles.emoji}>💉</span>
                 </Col>
             </Row>
         </Container>

@@ -1,6 +1,8 @@
 import React from "react"
 import Index from '../components/IndexPage';
 
-export default function Home() {
-    return <Index />
+export default function IndexPage() {
+    return (
+        <Index />
+    );
 }

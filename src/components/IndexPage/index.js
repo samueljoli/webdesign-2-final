@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import Typed from 'typed.js';
-import {Row, Col, Container} from "react-bootstrap"
+import {Row, Col, Container, Button} from "react-bootstrap"
 import * as styles from './index.module.css';
 // import { TEST_CASE } from "gatsby-env-variables"
 
@@ -24,7 +24,7 @@ const IndexPage = () => {
             <Row>
                 <Col>
                     <p id="meme"></p>
-                    <button onClick={onClick} className={styles.cta}>Find Location</button>
+                    <Button variant="warning" onClick={onClick} className={styles.cta}>Find Location</Button>
                 </Col>
             </Row>
         </Container>

@@ -1,0 +1,18 @@
+.header {
+    text-align: center !important;
+    font-size: 4rem !important;
+    margin-bottom: 40px !important;
+}
+
+.cards {
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+.card {
+    margin-bottom: 30px;
+}
+
+.btn {
+    color: white !important;
+}

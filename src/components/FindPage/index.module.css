@@ -5,15 +5,23 @@
     align-items: center;
 }
 
-.cta {
+.fade {
     opacity: 0;
     animation-name: fadeIn;
-    animation-duration: 4s;
-    animation-delay: 3s;
+    animation-duration: 2s;
     animation-fill-mode: forwards;
 }
 
 @keyframes fadeIn {
     from {opacity: 0}
     to {opacity: 1}
+}
+
+.link {
+    background: lightgray;
+    padding: 7px;
+}
+
+.emoji {
+    font-size: 1.5rem;
 }

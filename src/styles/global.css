@@ -27,3 +27,11 @@ a:visited {
 a:active {
     color: black;
 }
+
+input {
+  outline: 0;
+  padding-left: 10px;
+  border-width: 0 0 2px;
+  border-color: lightgray;
+  max-width: 100px;
+}
