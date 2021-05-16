@@ -1,4 +1,4 @@
-import {ZIP_CODE_API_APP_KEY} from "gatsby-env-variables"
+import {ZIP_CODE_API_APP_KEY, ZIP_CODE_CLIENT_KEY} from "gatsby-env-variables"
 
 const fakeZipRes = {
     zip_codes: [
@@ -65,14 +65,15 @@ class Geo {
     static displayName = "Point";
     static zipCodeApiHost = 'https://www.zipcodeapi.com';
     static zipCodeApiKey = ZIP_CODE_API_APP_KEY;
+    static zipCodeClientKey = ZIP_CODE_CLIENT_KEY;
 
     static async findLocations(zipCode, radius) {
         const hash = {};
 
         try {
-            const {zipCodeApiHost, zipCodeApiKey} = this;
+            const {zipCodeApiHost, zipCodeClientKey, zipCodeApiKey} = this;
 
-            const zipRaw = await fetch(`${zipCodeApiHost}/rest/${zipCodeApiKey}/radius.json/${zipCode}/${radius}/mile`);
+            const zipRaw = await fetch(`${zipCodeApiHost}/rest/${zipCodeClientKey}/radius.json/${zipCode}/${radius}/mile`);
 
             const zipJson = await zipRaw.json();
         } catch (e) {
