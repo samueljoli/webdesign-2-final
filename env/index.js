@@ -1,3 +1,3 @@
 module.exports = {
-    TEST_CASE: process.env.TEST_CASE,
+    ZIP_CODE_API_APP_KEY: process.env.ZIP_CODE_API_APP_KEY,
 }

@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import {Row, Col, Container} from "react-bootstrap"
 import * as styles from './index.module.css';
+import Geo from '../../services/geo';
+import {ZIP_CODE_API_APP_KEY} from "gatsby-env-variables"
 
 const FindPage = () => {
     const [zipCode, setZipCode] = useState('');
@@ -15,6 +17,7 @@ const FindPage = () => {
     };
 
     const onClick = () => {
+        Geo.speak();
     };
 
     return (
@@ -38,7 +41,7 @@ const FindPage = () => {
                     </span>
                 </Col>
                 <Col xs={12}>
-                    <button>Search</button>
+                    <button onClick={onClick}>Search</button>
                 </Col>
             </Row>
         </Container>
