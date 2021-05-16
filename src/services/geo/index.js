@@ -59,7 +59,7 @@ const fakeZipRes = {
     ],
 };
 
-const zipCodes = fakeZipRes.zip_codes.map(z => z.zip_code);
+//const zipCodes = fakeZipRes.zip_codes.map(z => z.zip_code);
 
 class Geo {
     static displayName = "Point";
@@ -70,6 +70,7 @@ class Geo {
     static async findLocations(zipCode, radius) {
         const hash = {};
         let state;
+        let zipCodes;
 
         try {
             const {zipCodeApiHost, zipCodeClientKey, zipCodeApiKey} = this;
@@ -78,18 +79,13 @@ class Geo {
 
             const zipJson = await zipRaw.json();
 
-            console.log(zipJson, '<<< zip json');
-
             const [first] = zipJson.zip_codes;
 
-            console.log(first, '<<< first');
-
             state = first.state;
+            zipCodes = zipJson.zip_codes.map(z => z.zip_code);
         } catch (e) {
             console.log(e, '<<<<<<< ERROR');
         }
-
-        console.log(state, ',<< state');
 
         const test = await fetch(`https://www.vaccinespotter.org/api/v0/states/${state}.json`);
 
