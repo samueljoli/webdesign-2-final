@@ -8,5 +8,6 @@ module.exports = {
          * This is where you can add plugins that will do certain tasks
          */
         "gatsby-plugin-fontawesome-css",
+        "gatsby-env-variables",
     ],
 };
