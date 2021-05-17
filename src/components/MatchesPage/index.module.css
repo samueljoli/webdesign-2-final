@@ -16,3 +16,14 @@
 .btn {
     color: white !important;
 }
+
+.loadcontainer {
+    width: 100;
+    text-align: center;
+    margin-top: 50vh;
+}
+
+.nodata {
+    text-align: center;
+    margin-top: 50vh;
+}
