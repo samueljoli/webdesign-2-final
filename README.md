@@ -7,3 +7,6 @@ zipcode and radius.
 
 - [ZipCodeApi](www.zipcodeapi.com)
 - [VaccineSpotter](www.vaccinespotter.org)
+
+### Usage
+[website](https://webdesign2finalmain.gatsbyjs.io/)
