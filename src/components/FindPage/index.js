@@ -6,7 +6,7 @@ import * as styles from './index.module.css';
 import { Link } from "gatsby"
 
 const FindPage = () => {
-    const {setData, isFetcing, setIsFetching} = useContext(VaccineSpotterContext);
+    const {setData, setIsFetching} = useContext(VaccineSpotterContext);
     const [zipCode, setZipCode] = useState('');
     const [radius, setRadius] = useState(0);
 
@@ -29,9 +29,8 @@ const FindPage = () => {
         <Container className={styles.container} fluid >
             <Row>
                 <Col className={styles.fade} xs={12}>
-                    {isFetcing && (<p> is fetching </p>)}
                     <span>
-                        Find a location at zipde:
+                        Find a location at zipcode:
                     </span>
                     <span>
                         <input onChange={handleZipCodeUpdate} />

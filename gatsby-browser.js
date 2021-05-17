@@ -8,7 +8,6 @@ import React from "react"
 import {VaccineSpotterContext} from './src/contexts/vaccineSpotter';
 
 export const wrapRootElement = ({ element }) => {
-    console.log('hahaha');
     return(
         <VaccineSpotterContext>{element}</VaccineSpotterContext>
     );

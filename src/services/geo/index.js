@@ -16,11 +16,7 @@ class Geo {
 
             const zipJson = await zipRaw.json();
 
-            console.log(zipJson, '<<< zipJson');
-
             const [first] = zipJson.zip_codes;
-
-            console.log(first, '<<< first');
 
             const state = first.state;
             const zipCodes = zipJson.zip_codes.map(z => z.zip_code);
